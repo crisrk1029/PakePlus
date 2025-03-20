@@ -6,7 +6,7 @@ use tauri_plugin_store::StoreExt;
 pub async fn resolve_setup(app: &mut App) -> Result<(), Error> {
     let app_handle = app.handle();
     // 示例 JSON 字符串
-    let window_json = r#"{"label":"main","title":"test1","url":"http://10.191.8.137/index.php","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36","width":1920,"height":1080,"theme":null,"resizable":true,"fullscreen":false,"maximized":false,"minWidth":400,"minHeight":300,"maxWidth":1920,"maxHeight":1080,"decorations":true,"transparent":false,"titleBarStyle":"Visible","visible":false,"focus":true,"closable":true,"minimizable":true,"maximizable":true,"alwaysOnTop":false,"alwaysOnBottom":false,"center":false,"skipTaskbar":false,"tabbingIdentifier":null,"parent":null,"dragDropEnabled":true,"browserExtensionsEnabled":false,"devtools":true,"contentProtected":false,"hiddenTitle":false,"incognito":false,"proxyUrl":null,"useHttpsScheme":false,"zoomHotkeysEnabled":false,"acceptFirstMouse":false,"create":false}"#;
+    let window_json = r#"{"label":"main","title":"1","url":"http://10.191.8.137/index.php","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36","width":800,"height":600,"theme":null,"resizable":true,"fullscreen":false,"maximized":false,"minWidth":400,"minHeight":300,"maxWidth":1920,"maxHeight":1080,"decorations":true,"transparent":false,"titleBarStyle":"Visible","visible":false,"focus":true,"closable":true,"minimizable":true,"maximizable":true,"alwaysOnTop":false,"alwaysOnBottom":false,"center":false,"skipTaskbar":false,"tabbingIdentifier":null,"parent":null,"dragDropEnabled":true,"browserExtensionsEnabled":false,"devtools":true,"contentProtected":false,"hiddenTitle":false,"incognito":false,"proxyUrl":null,"useHttpsScheme":false,"zoomHotkeysEnabled":false,"acceptFirstMouse":false,"create":false}"#;
     // 解析 JSON 字符串为 WindowConfig 类型
     let config: WindowConfig = serde_json::from_str(window_json).unwrap();
     let window = tauri::WebviewWindowBuilder::from_config(app_handle, &config)
@@ -16,7 +16,7 @@ pub async fn resolve_setup(app: &mut App) -> Result<(), Error> {
         .unwrap();
 
     // 是否记录窗口位置和大小
-    if true {
+    if false {
         // 获取记录窗口大小
         let store = app.store("app_data.json").unwrap();
 
